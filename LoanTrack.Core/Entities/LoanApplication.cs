@@ -5,9 +5,9 @@ public class LoanApplication
     public Guid Id { get; set; }
 
     // Foreign keys
-    public Guid ApplicantId { get; set; }
-    public Guid LoanProductId { get; set; }
-    public Guid? ReviewedByUserId { get; set; }  // nullable — not assigned until reviewed
+public string ApplicantId { get; set; } = string.Empty;
+public Guid LoanProductId { get; set; }
+public string? ReviewedByUserId { get; set; }
 
     // Loan details
     public decimal RequestedAmount { get; set; }

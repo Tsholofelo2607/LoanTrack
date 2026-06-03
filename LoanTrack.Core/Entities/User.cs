@@ -1,14 +1,12 @@
+using Microsoft.AspNetCore.Identity;
+
 namespace LoanTrack.Core.Entities;
 
-public class User
+public class User : IdentityUser
 {
-    public Guid Id { get; set; } //every entity needs a primary key
-    public string FullName { get; set; } = string.Empty; //avoiding null references errors
-    public string Email { get; set; } = string.Empty;
-    public string PasswordHash { get; set; } = string.Empty;
-    public string Role { get; set; } = string.Empty; // Applicant, LoanOfficer, Admin
+    public string FullName { get; set; } = string.Empty;
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
-    // Navigation property — EF uses this to build the JOIN
+    // Navigation property
     public ICollection<LoanApplication> LoanApplications { get; set; } = new List<LoanApplication>();
 }
