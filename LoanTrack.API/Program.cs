@@ -93,6 +93,8 @@ builder.Services.AddSwaggerGen(options =>
 
 var app = builder.Build();
 
+app.UseMiddleware<LoanTrack.API.Middleware.ExceptionHandlingMiddleware>();
+
 // Enable Swagger UI
 if (app.Environment.IsDevelopment())
 {
